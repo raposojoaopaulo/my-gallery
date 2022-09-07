@@ -11,16 +11,27 @@ export const Container = styled.div`
       border-radius: 10px;
   }
   button {
-    display: block;
-    background-color: #BF0F00;
+    background-color: #3D3F43;
     border: 0;
-    color: #FFF;
-    padding: 8px 16px;
-    font-size: 15px;
-    border-radius: 10px;
-    margin: 10px auto 0 auto;
-    cursor: pointer;
   }
+  button:hover {
+    opacity: .85;
+    transition: .3s;
+  }
+`;
+
+export const ButtonDelete = styled.div`
+  display: block;
+  width: 70px;
+  background-color: #BF0F00;
+  border: 0;
+  color: #FFF;
+  padding: 8px 16px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 10px auto 0 auto;
+  cursor: pointer;
+  text-align: center;
 
   button:hover {
     opacity: .85;

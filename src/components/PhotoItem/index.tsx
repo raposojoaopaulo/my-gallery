@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, ButtonDelete } from './styles';
+import { useState } from 'react';
+import { ModalDisplay } from '../ModalDisplay';
 
 type Props = {
   url: string;
@@ -8,11 +10,20 @@ type Props = {
 }
 
 export const PhotoItem = ({ url, name, onDelete }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Container>
-      <img src={url} alt={name} />
+      <button onClick={() => setIsModalOpen(true)}>
+        <img src={url} alt={name} />
+      </button> 
+      {isModalOpen ? <ModalDisplay 
+                        url={url} 
+                        name={name}
+                        onClose={() => setIsModalOpen(false)}
+                      /> : null}
       {name}
-      <button onClick={()=>onDelete(name)}>Delete</button>
+      <ButtonDelete onClick={()=>onDelete(name)}>Delete</ButtonDelete>
     </Container>
   )
 }
